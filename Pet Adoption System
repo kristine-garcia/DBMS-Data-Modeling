@@ -1,0 +1,33 @@
+// Pet Adoption System
+
+Table Adopters{
+adopter_id int [primary key, increment]
+name varchar(100)
+}
+
+Table Pets{
+pet_id int [primary key, increment]
+name varchar(100)
+is_adopted boolean
+adopter_id int [ref: > Adopters.adopter_id]
+}
+
+Table Vets{
+vet_id int [primary key, increment]
+name varchar(100)
+}
+
+Table Vet_Visits{
+visit_id int [primary key, increment]
+pet_id int [ref: > Pets.pet_id]
+vet_id int [ref: > Vets.vet_id]
+visit_date date
+}
+
+
+
+
+//Relationships:
+//Ref: Pets.adopter_id > Adopters.adopter_id
+//Ref: Vet_Visits.pet_id > Pets.pet_id
+//Ref: Vet_Visits.vet_id > Vets.vet_id
