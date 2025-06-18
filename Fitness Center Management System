@@ -34,3 +34,12 @@ member_id int [ref: > Members.member_id]
 class_id int [ref: > Classes.class_id]
 check_in_timestamp datetime
 }
+
+//Relationships:
+//Ref: Members.membership_id > Memberships.membership_id 
+//Ref: Members_Trainers.member_id > Members.member_id 
+//Ref: Members_Trainers.trainer_id > Trainers.trainer_id 
+//Ref: Attendance.member_id > Members.member_id 
+//Ref: Attendance.class_id > Classes.class_id
+
+
