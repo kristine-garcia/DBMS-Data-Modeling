@@ -1,0 +1,33 @@
+// Car Rental Service
+
+Table Customers{
+customer_id int [primary key, increment]
+name varchar(100)
+}
+
+Table Vehicles{
+vehicle_id int [primary key, increment]
+model varchar(100)
+year int
+}
+
+Table Rentals{
+rental_id int [primary key, increment]
+start_date date
+end_date date
+customer_id int [ref: > Customers.customer_id]
+vehicle_id int [ref: > Vehicles.vehicle_id]
+}
+
+Table Mechanics{
+mechanic_id int [primary key, increment]
+name varchar(100)
+}
+
+Table Maintenance{
+maintenance_id int [primary key, increment]
+vehicle_id int [ref: > Vehicles.vehicle_id]
+mechanic_id int [ref: > Mechanics.mechanic_id]
+maintenance_date date
+description varchar(200)
+}
