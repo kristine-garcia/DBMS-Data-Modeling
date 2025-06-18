@@ -1,0 +1,44 @@
+// Movie Theater Ticketing System
+
+Table Movies{
+movie_id int [primary key, increment]
+title varchar
+}
+
+Table Theater_Room{
+room_id int [primary key, increment]
+room_number varchar(6)
+}
+
+Table Seats{
+seat_id int [primary key, increment]
+room_id int [ref: > Theater_Room.room_id]
+seat_number varchar(30)
+}
+
+Table Screenings{
+screening_id int [primary key, increment]
+movie_id int [ref: > Movies.movie_id]
+room_id int [ref: > Theater_Room.room_id]
+start_time datetime
+}
+
+Table Customers{
+customer_id int [primary key, increment]
+name varchar(100)
+}
+
+Table Tickets{
+ticket_id int [primary key, increment]
+customer_id int [ref: > Customers.customer_id]
+screening_id int [ref: > Screenings.screening_id]
+seat_id int [ref: > Seats.seat_id]
+}
+
+//Relationships:
+//Ref: Screenings.movie_id > Movies.movie_id
+//Ref: Screenings.cinema_id > Cinema_Number.cinema_id
+//Ref: Seats.room_id > Cinema_Number.cinema_id
+//Ref: Tickets.customer_id > Customers.customer_id
+//Ref: Tickets.screening_id > Screenings.screening_id
+//Ref: Tickets.seat_id > Seats.seat_id
