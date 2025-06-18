@@ -1,0 +1,46 @@
+// Art Gallery Inventory Sales
+
+Table Artists{
+artist_id int [primary key, increment]
+name varchar(100)
+}
+
+Table Artworks{
+artwork_id int [primary key, increment]
+title varchar(100)
+artist_id int [ref: > Artists.artist_id]
+}
+
+Table Exhibitions{
+exhibitions_id int [primary key, increment]
+name varchar(100)
+location varchar(100)
+start_date date
+end_date date
+}
+
+Table Artworks_Exhibits{
+artwork_exhibits_id int [primary key, increment]
+artwork_id int [ref: > Artworks.artwork_id]
+exhibition_id int [ref: > Exhibitions.exhibitions_id]
+display_date date
+}
+
+Table Buyers{
+buyer_id int [primary key, increment]
+name varchar(100)
+}
+
+Table Sales {
+sale_id int [primary key, increment]
+buyer_id int [ref: > Buyers.buyer_id]
+sale_date date
+price float
+}
+
+//Relationships: 
+//Ref: Artworks.artist_id > Artists.artist_id
+//Ref: Artwork_Exhibits.artwork_id > Artworks.artwork_id
+//Ref: Artwork_Exhibits.exhibition_id > Exhibitions.exhibition_id
+//Ref: Sales.buyer_id > Buyers.buyer_id
+//Ref: Sales.artwork_id > Artworks.artwork_id
