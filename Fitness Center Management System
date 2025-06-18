@@ -1,0 +1,36 @@
+// Fitness Center Management System
+
+Table Members{
+member_id int [primary key, increment]
+name varchar(100)
+membership_id int [ref: > Memberships.membership_id]
+}
+
+Table Memberships {
+membership_id int [primary key, increment]
+start_date date
+end_date date
+}
+
+Table Trainers {
+trainer_id int [primary key, increment]
+name varchar(100)
+}
+
+Table Members_Trainers{
+member_id int [ref: > Members.member_id]
+trainer_id int [ref: > Trainers.trainer_id]
+}
+
+Table Classes{
+class_id int [primary key, increment]
+class_name varchar(100)
+schedule datetime
+}
+
+Table Attendance{
+attendance_id int [primary key, increment]
+member_id int [ref: > Members.member_id]
+class_id int [ref: > Classes.class_id]
+check_in_timestamp datetime
+}
