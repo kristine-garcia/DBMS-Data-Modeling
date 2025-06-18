@@ -31,3 +31,9 @@ mechanic_id int [ref: > Mechanics.mechanic_id]
 maintenance_date date
 description varchar(200)
 }
+
+//Relationships:
+//Ref: Rentals.customer_id > Customers.customer_id
+//Ref: Rentals.vehicle_id > Vehicles.vehicle_id
+//Ref: Maintenance.vehicle_id > Vehicles.vehicle_id
+//Ref: Maintenance.mechanic_id > Mechanics.mechanic_id
